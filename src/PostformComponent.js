@@ -10,7 +10,7 @@ class PostformComponent extends Component {
     this.state = {
       title: "",
       body: "",
-      name: ""
+      name: "",
     };
 
     this.onChange = this.onChange.bind(this);
@@ -28,10 +28,10 @@ class PostformComponent extends Component {
 
     const post = {
       title: this.state.title,
-      body: this.state.body
+      body: this.state.body,
     };
 
-    this.props.createPost(post);
+    this.props.createPost(post, dispatch);
 
     this.props.history.push("/");
   }
@@ -80,7 +80,7 @@ class PostformComponent extends Component {
 }
 
 PostformComponent.propTypes = {
-  createPost: PropTypes.func.isRequired
+  createPost: PropTypes.func.isRequired,
 };
 
 export default withRouter(connect(null, { createPost })(PostformComponent));
